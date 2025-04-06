@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things That Scroll</title>
+    <style>
+
+
+
+@font-face {
+    font-family: 'F37Judge';
+    src: url('fonts/F37Judge-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+        
+
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --subtle-text-color: #888888;
+            --border-color: #f0f0f0;
+            --accent-color: #333333;
+        }
+
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        opacity: 0;
+        transition: opacity 1s ease-out;
+    }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        .showcase-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 5rem 3rem 3rem;
+            max-width: 600px;
+        }
+
+        /* Apply F37Judge to headings */
+    h1, .card-title {
+        font-family: 'F37Judge', sans-serif;
+    }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--subtle-text-color);
+            line-height: 1.6;
+        }
+
+        .horizontal-scroll-section {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 2rem 3rem 5rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .horizontal-scroll-section::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-track {
+            display: flex;
+            width: max-content;
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            width: 350px;
+            flex-shrink: 0;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .project-card:hover {
+            border-color: var(--subtle-text-color);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-preview {
+            height: 220px;
+            background-color: #f5f5f5;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .project-card:hover .card-preview img {
+             transform: scale(1.05);
+        }
+        
+        .card-preview::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 30%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover .card-preview::after {
+             opacity: 1;
+        }
+
+        .card-content {
+            padding: 1.25rem 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: var(--subtle-text-color);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            background-color: transparent;
+            color: var(--subtle-text-color);
+            padding: 0.1rem 0;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .coming-soon-card {
+            width: 300px;
+            border: 1px dashed var(--border-color);
+            background-color: transparent;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: none;
+        }
+
+        .coming-soon-card:hover {
+             border-color: var(--subtle-text-color);
+             box-shadow: none;
+        }
+        
+        .coming-soon-card .card-content {
+             align-items: center;
+             justify-content: center;
+        }
+
+        .coming-soon-card .card-title {
+            color: var(--subtle-text-color);
+            font-weight: 400;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 3rem;
+            margin-top: auto;
+            color: var(--subtle-text-color);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+             header {
+                 padding: 3rem 1.5rem 2rem;
+                 max-width: none;
+             }
+             header h1 {
+                 font-size: 2.5rem;
+             }
+             .horizontal-scroll-section {
+                 padding: 1rem 1.5rem 3rem;
+             }
+             .project-track {
+                 gap: 1.5rem;
+             }
+             .project-card {
+                 width: 300px;
+             }
+              .coming-soon-card {
+                  width: 250px;
+              }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="showcase-wrapper">
+        <header>
+            <h1>Things That Scroll.</h1>
+            <p>Because static pages are so last season. A small collection of scroll-based experiments.</p>
+        </header>
+
+        <main class="horizontal-scroll-section">
+            <div class="project-track">
+                <!-- Scroll3D Project -->
+                <a href="Scroll3d/index.html" target="_blank" class="project-card">
+                    <div class="card-preview">
+                        <img src="Scroll3d/assests/img1.jpeg" alt="3D Parallax Scroll Preview">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">The "3D" Thing</h2>
+                        <p class="card-description">Questionable depth effects achieved via scrolling.</p>
+                        <div class="card-tags">
+                            <span class="tag">GSAP</span>
+                            <span class="tag">Lenis</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Coming Soon Placeholder 1 -->
+                <div class="project-card coming-soon-card">
+                    <div class="card-content">
+                        <h2 class="card-title">Work In Progress...</h2>
+                    </div>
+                </div>
+                
+                <!-- Coming Soon Placeholder 2 -->
+                 <div class="project-card coming-soon-card">
+                    <div class="card-content">
+                        <h2 class="card-title">Maybe Another One?</h2>
+                    </div>
+                </div>
+                
+                <!-- Add more project cards here as <a> or <div> elements -->
+
+            </div>
+        </main>
+
+        <footer>
+            <p>You've reached the end. Or have you?</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple fade-in effect on load
+        document.addEventListener('DOMContentLoaded', () => {
+            requestAnimationFrame(() => {
+                 requestAnimationFrame(() => {
+                     document.body.classList.add('loaded');
+                 });
+            });
+        });
+    </script>
+
+</body>
+</html> 

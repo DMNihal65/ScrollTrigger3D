@@ -1,0 +1,27 @@
+{
+  "projects": [
+    {
+      "id": "scroll3d",
+      "name": "3D Parallax Scroll",
+      "description": "A parallax scroll animation with 3D depth effect. Features smooth scrolling, title parallax effects, and animated image cards that appear as you scroll.",
+      "path": "Scroll3d/index.html",
+      "previewImages": ["img3.jpeg", "img7.jpeg", "img9.jpeg"],
+      "technologies": ["GSAP", "ScrollTrigger", "Lenis"],
+      "dateAdded": "2023-04-05"
+    }
+  ],
+  "comingSoon": [
+    {
+      "name": "Framer Motion Scroll",
+      "technologies": ["Framer Motion", "React", "Intersection Observer"]
+    },
+    {
+      "name": "Three.js Scroll Experience",
+      "technologies": ["Three.js", "GSAP", "WebGL"]
+    },
+    {
+      "name": "Custom Scroll Animations",
+      "technologies": ["CSS", "JavaScript", "IntersectionObserver"]
+    }
+  ]
+} 

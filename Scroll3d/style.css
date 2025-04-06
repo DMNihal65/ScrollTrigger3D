@@ -1,0 +1,131 @@
+@font-face {
+  font-family: 'F37Judge-Bold';
+  src: url('./fonts/F37Judge-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "F37Judge-Bold", sans-serif;
+    background-color: #edebde;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 4vw;
+    font-weight: 500;
+    color: #1f1f1f;
+    white-space: nowrap;
+}
+
+.hero,
+.outro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#edebde;
+}
+
+.sticky {
+    background-color:#fffef8;
+}
+
+.titles{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 400vw;
+    height: 100vh;
+    display: flex;
+    will-change: transform;
+}
+
+.title{
+    position: relative;
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1{
+    
+    font-size: 6vw;
+    font-style: italic;
+    
+    text-align: center;
+}
+
+.title h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 6vw;
+    font-style: italic;
+    will-change: transform;
+    text-align: center;
+}
+
+h1.title-1{
+    color: #a8c952;
+}
+h1.title-2{
+    color: #10a0f4;
+}
+h1.title-3{
+    color: #333;
+}
+
+.images{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250vw;
+    height: 250vh;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+    z-index: 1;
+}
+
+.card{
+    position: absolute;
+    width: 250px;
+    height: 300px;
+    border-radius: 1em;
+    transform-style: preserve-3d;
+    will-change: transform, box-shadow;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+

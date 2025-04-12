@@ -40,14 +40,14 @@ img{
     display: flex;
     flex-direction: column;
     z-index: 2;
-    opacity: 0;
+    
 }
 
 .revealer{
     flex: 1;
     width: 100%;
     background-color: #fff;
-    clip-path: polygon(0%,0%,100%,0%,100%,100%,0%,100%);
+    clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100%);
 
 }
 
@@ -120,7 +120,7 @@ img{
 }
 
 .site-logo h1{
-    color: #fff;
+    /* color: #fff; */
     font-family: "F37Judge-Bold", sans-serif;
     font-size: 5vw;
     font-weight: 500;
@@ -143,7 +143,7 @@ img{
     display: flex;
     justify-content: flex-end;
     gap: 1em;
-    color: #fff;
+    /* color: #fff; */
 }
 
 .nav .nav-item p {
@@ -162,7 +162,7 @@ img{
     bottom: 2em;
     width: 40%;
     height: 50%;
-    clip-path: polygon(0%,100%,100%,100%,100%,100%,0%,100%);
+    clip-path: polygon(0% 100%,100% 100%,100% 100%,0% 100%);
 }
 
 .cover-img img {
@@ -194,7 +194,7 @@ img{
 .site-info h2 {
     font-size: 25px;
     font-weight: 500;
-    color: #fff;
+    /* color: #fff; */
     line-height: 1.25;
 }
 
@@ -204,7 +204,8 @@ img{
     font-family: "F37Judge-Bold", sans-serif;
     font-size: 11px;
     font-weight: 500;
-    color: #fff;
+    /* color: #fff; */
+    color:#000
 }
 
 .site-info .row:nth-child(2) .col:nth-child(2){
@@ -217,4 +218,28 @@ img{
 
 .address p , .socials p {
     line-height: 1.25;
+}
+
+.word, .nav-item, .line{
+    clip-path: polygon(0 0,100% 0,100% 100%,0% 100%);
+}
+
+
+.word h1,
+.nav-item p,
+.site-info h2 .line span,
+.line p {
+    position: relative;
+    will-change: transform;
+}
+
+.site-info h2 .line span {
+    display: flex;
+    transform: translateY(100%);
+}
+
+.word h1,
+.nav-item p,
+.line p {
+    transform: translateY(100%);
 }

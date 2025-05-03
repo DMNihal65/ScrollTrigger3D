@@ -52,6 +52,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     images.forEach((img,index)=>{
         scaleTl.to(
             img,{
+
+                
                 opacity:1,
                 scale:1,
                 duration:1.25,
